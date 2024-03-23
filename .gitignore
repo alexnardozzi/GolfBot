@@ -1,2 +1,5 @@
 app/.vs/
 venv/
+.vs/
+
+configs/config.ini
