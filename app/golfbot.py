@@ -42,7 +42,7 @@ while(retries < max_retries):
         time.sleep(0.5)
         
         # Insert desired date
-        search_box.send_keys("04/06/2024")
+        search_box.send_keys(config["TEETIME"]["date"])
         time.sleep(1)
         driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/ui-view/div/div/div/div[1]/div[2]/div/h2").click()
         time.sleep(1)
