@@ -1,0 +1,3 @@
+# Golf Bot
+
+Initial README
