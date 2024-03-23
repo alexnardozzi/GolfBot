@@ -5,12 +5,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
+import configparser
 import undetected_chromedriver as uc
 import time
 
 driver = uc.Chrome(use_subprocess=True, headless = False)
+config = configparser.ConfigParser()
+config.read('../configs/congif.ini')
 
-driver.get("https://unioncounty14day.ezlinksgolf.com/index.html#/preSearch")
+driver.get(config['GOLFBOT']['url'])
 
 element = WebDriverWait(driver, 30).until(
         EC.presence_of_element_located((By.ID, "dateInput"))
@@ -53,6 +56,8 @@ while(True):
         search_box.send_keys("04/06/2024")
         time.sleep(1)
         driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/ui-view/div/div/div/div[1]/div[2]/div/h2").click()
+        time.sleep()
+        driver.find_element(By.CLASS_NAME, "btn-10").click()
         time.sleep(3)
 
 driver.quit()
